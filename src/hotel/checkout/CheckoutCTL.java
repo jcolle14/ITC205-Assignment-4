@@ -63,7 +63,7 @@ public class CheckoutCTL {
 			
 			sb.append("Charges:\n");
 			
-			total = 0;
+			total = 5;
 			List<ServiceCharge> charges = booking.getCharges();
 			for (ServiceCharge sc : charges) {
 				total += sc.getCost();
