@@ -1,9 +1,54 @@
-Hypothesis: The bug is in the roomNumberEntered function
+Hypothesis 1: The bug is in the roomNumberEntered function
 Test: check the parameters
 Prediction: The parameters should work
     selection == d, roomId == 101, state = state.ACCEPT, Type = v, number = 1, ccv = 1, selection = r, roomId = 101, serviceType = s, cost = 25
 	Executing function should throw exception
 Result: 
-    Parameters are all the same
+    Parameters are all sane
 	Exception thrown by the function
     Hypothesis confirmed
+	
+Hypothesis 2: the exception is thrown before line 65 in RecordServiceCTL
+Test: set a breakpoint at line 65
+Prediction: should never get to line 65
+Result:
+    line 65 not reached
+	Hypothesis confirmed
+	
+Hypothesis 3: the exception is thrown before line 34 in RecordServiceCTL
+Test: set a breakpoint at line 34
+Prediction: should never get to line 34
+Result:
+    line 34 is reached
+	Hypothesis is incorrect
+	
+Hypothesis 4: the exception is thrown before line 52 in RecordServiceCTL
+Test: set a breakpoint at line 52
+Prediction: should never reach line 52
+Result:
+    line 52 is reached
+	Hypothesis is incorrect
+	
+Hypothesis 5: the exception is thrown at line 61 in RecordServiceCTL
+Test: set a breakpoint at line 61
+Prediction: should stop at breakpoint
+Result:
+    stops at breakpoint
+	Hypothesis is correct
+	
+Hypothesis 6: origin of line 61 is sane
+              state should be set to State.CANCELLED on line 60 in RecordServiceCTL
+Test: inspect state after line 60 executed
+Prediction: state is State.COMPLETED
+Result:
+    state = State.COMPLETED
+    Hypothesis is correct
+ 
+    Bug is on line 60
+	
+Hypothesis 7: Bug is State.CANCELLED for total instead of State.COMPLETED
+Test: change state to State.CANCELLED
+Prediction: Bug should be fixed, no exceptions
+Result: 
+    Bug has been fixed
+	Hypothesis confirmed

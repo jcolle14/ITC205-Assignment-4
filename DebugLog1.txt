@@ -1,11 +1,54 @@
-Hypothesis: The bug is in the roomIdEntered function
+Hypothesis 1: The bug is in the roomIdEntered function
 Test: check the parameters
 Prediction: The parameters should work
-    Main == d, roomId == 101
+    selection == d, roomId == 101
 	Executing function should throw exception
 Result: 
-    Parameters are both the same
+    Parameters are both the sane
 	Exception thrown by the function
     Hypothesis confirmed
 
+Hypothesis 2: the exception is thrown before line 83 in CheckoutCTL
+Test: set a breakpoint at line 83
+Prediction: should never get to line 83
+Result:
+    line 83 not reached
+	Hypothesis confirmed
 	
+Hypothesis 3: the exception is thrown before line 45 in CheckoutCTL
+Test: set a breakpoint at line 45
+Prediction: should never get to line 45
+Result:
+    line 45 is reached
+	Hypothesis is incorrect
+	
+Hypothesis 4: the exception is thrown before line 51 in CheckoutCTL
+Test: set a breakpoint at line 51
+Prediction: should never reach line 51
+Result:
+    line 51 is reached
+	Hypothesis is incorrect
+	
+Hypothesis 5: the exception is thrown at line 67 in CheckoutCTL
+Test: set a breakpoint at line 67
+Prediction: should stop at breakpoint
+Result:
+    stops at breakpoint
+	Hypothesis is correct
+	
+Hypothesis 6: origin of line 67 is sane
+              total should be set to 5 at line 66 in CheckoutCTL
+Test: inspect total after line 66 executed
+Prediction: total is 0
+Result:
+    total == 0
+    Hypothesis is correct
+ 
+    Bug is on line 66
+
+Hypothesis 7: Bug is 5 for total instead of 0
+Test: change total to 5	
+Prediction: Bug should be fixed, no exceptions
+Result: 
+    Bug has been fixed
+	Hypothesis confirmed
