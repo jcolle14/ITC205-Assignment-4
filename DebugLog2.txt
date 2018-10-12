@@ -1,0 +1,9 @@
+Hypothesis: The bug is in the roomNumberEntered function
+Test: check the parameters
+Prediction: The parameters should work
+    selection == d, roomId == 101, state = state.ACCEPT, Type = v, number = 1, ccv = 1, selection = r, roomId = 101, serviceType = s, cost = 25
+	Executing function should throw exception
+Result: 
+    Parameters are all the same
+	Exception thrown by the function
+    Hypothesis confirmed
