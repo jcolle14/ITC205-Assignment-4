@@ -1,0 +1,11 @@
+Hypothesis: The bug is in the roomIdEntered function
+Test: check the parameters
+Prediction: The parameters should work
+    Main == d, roomId == 101
+	Executing function should throw exception
+Result: 
+    Parameters are both the same
+	Exception thrown by the function
+    Hypothesis confirmed
+
+	
