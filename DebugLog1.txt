@@ -1,4 +1,4 @@
-Hypothesis 1: The bug is in the roomIdEntered function
+Hypothesis 1: The bug is in the addServiceCharge function
 Test: check the parameters
 Prediction: The parameters should work
     selection == d, roomId == 101
@@ -8,46 +8,46 @@ Result:
 	Exception thrown by the function
     Hypothesis confirmed
 
-Hypothesis 2: the exception is thrown before line 83 in CheckoutCTL
-Test: set a breakpoint at line 83
-Prediction: should never get to line 83
+Hypothesis 2: the exception is thrown before line 146 in Booking
+Test: set a breakpoint at line 146
+Prediction: should never get to line 146
 Result:
-    line 83 not reached
+    line 146 not reached
 	Hypothesis confirmed
 	
-Hypothesis 3: the exception is thrown before line 45 in CheckoutCTL
-Test: set a breakpoint at line 45
-Prediction: should never get to line 45
+Hypothesis 3: the exception is thrown before line 131 in Booking
+Test: set a breakpoint at line 131
+Prediction: should never get to line 131
 Result:
-    line 45 is reached
+    line 131 is reached
 	Hypothesis is incorrect
 	
-Hypothesis 4: the exception is thrown before line 51 in CheckoutCTL
-Test: set a breakpoint at line 51
-Prediction: should never reach line 51
+Hypothesis 4: the exception is thrown before line 136 in Booking
+Test: set a breakpoint at line 136
+Prediction: should never reach line 136
 Result:
-    line 51 is reached
+    line 136 is reached
 	Hypothesis is incorrect
 	
-Hypothesis 5: the exception is thrown at line 67 in CheckoutCTL
-Test: set a breakpoint at line 67
+Hypothesis 5: the exception is thrown at line 142 in CheckoutCTL
+Test: set a breakpoint at line 142
 Prediction: should stop at breakpoint
 Result:
     stops at breakpoint
 	Hypothesis is correct
 	
-Hypothesis 6: origin of line 67 is sane
-              total should be set to 5 at line 66 in CheckoutCTL
-Test: inspect total after line 66 executed
-Prediction: total is 0
+Hypothesis 6: origin of line 142 is sane
+              cost should be changed to "cost" instead of "cosst"
+Test: inspect total after line 141 executed
+Prediction: double cosst
 Result:
-    total == 0
+    double cosst
     Hypothesis is correct
  
-    Bug is on line 66
+    Bug is on line 141
 
-Hypothesis 7: Bug is 5 for total instead of 0
-Test: change total to 5	
+Hypothesis 7: Bug is cost instead of cosst
+Test: change cosst to cost	
 Prediction: Bug should be fixed, no exceptions
 Result: 
     Bug has been fixed
