@@ -57,7 +57,7 @@ public class RecordServiceCTL {
 		hotel.addServiceCharge(roomNumber, serviceType, cost);
 		
 		recordServiceUI.displayServiceChargeMessage(roomNumber, cost, serviceType.getDescription());
-		state = State.COMPLETED;
+		state = State.CANCELLED;
 		recordServiceUI.setState(RecordServiceUI.State.COMPLETED);
 	}
 
